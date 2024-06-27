@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 # Set host firmware root based on architecture
 if [ "$ARCH" = "arm64" ]; then
-    HOST_FIRMWARE_ROOT="~/Workspace/Nearthlab/PX4"
+    HOST_FIRMWARE_ROOT="/Users/junwoo/Workspace/Nearthlab/PX4"
 else
     HOST_FIRMWARE_ROOT="/home/junwoo/Workspace/PX4"
 fi
