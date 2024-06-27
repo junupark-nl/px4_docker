@@ -8,11 +8,12 @@ ARCH=$(uname -m)
 if [ "$ARCH" = "arm64" ]; then
     HOST_FIRMWARE_ROOT="~/Workspace/Nearthlab/PX4"
 else
-    HOST_FIRMWARE_ROOT="~/Workspace/PX4"
+    HOST_FIRMWARE_ROOT="/home/junwoo/Workspace/PX4"
 fi
 
 docker run -it --rm \
-    --volume=~/Workspace/Nearthlab/PX4:$CONTAINER_FIRMWARE_ROOT:rw \
+    --volume=$HOST_FIRMWARE_ROOT:$CONTAINER_FIRMWARE_ROOT:rw \
+    --volume=$(pwd)/bashrc:/root/.bashrc:ro \
     --env=FIRMWARE=$CONTAINER_FIRMWARE_ROOT/PX4-Autopilot \
     --name=px4_build_docker \
     vividlibra/focal-px4-nuttx:latest /bin/bash
